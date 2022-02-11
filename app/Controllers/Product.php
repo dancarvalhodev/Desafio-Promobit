@@ -35,6 +35,30 @@ class Product extends BaseController
         }
     }
 
+    public function editForm($param = '')
+    {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
+        {
+            if(isset($param) && ($param != ''))
+            {
+                echo view('Templates/beginning');
+                echo view('Product/edit', ['data' => $param]);
+                echo view('Templates/ending');
+            }
+            else
+            {
+                $_SESSION['msg'] = 'Produto Inválido';
+                return redirect()->to('/home');
+            }
+        }
+        else
+        {
+            echo view('Templates/beginning');
+            echo view('login');
+            echo view('Templates/ending');
+        }   
+    }
+
     public function create()
     {
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
@@ -90,7 +114,7 @@ class Product extends BaseController
                             return redirect()->to('/home');
                         }
                     }
-                    
+
                     $_SESSION['msg'] = 'Cadastrado com Sucesso';
                     return redirect()->to('/home');
                 }

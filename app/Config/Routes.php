@@ -39,7 +39,7 @@ $routes->get('/logout', 'User::logout');
 $routes->get('/listProducts', 'Product::read');
 $routes->get('/deleteProduct/?(:num)?', 'Product::delete/$1');
 $routes->get('/showProduct/?(:num)?', 'Product::show/$1');
-//$routes->get('/editProductForm', 'Product::editForm');
+$routes->get('/editProduct/?(:num)?', 'Product::editForm/$1');
 
 //$routes->get('/editProducts/?(:num)?', 'Product::edit');
 
