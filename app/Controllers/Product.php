@@ -61,17 +61,28 @@ class Product extends BaseController
                     {
                         try
                         {
-                            $model_2->save([
-                                'name' => $tag,
-                            ]);
-    
-                            $last_id = $this->db->insertID();
-    
-                            $model_3->save([
-                                'product_id' => $last_id_product,
-                                'tag_id' => $last_id,
-                            ]);
-    
+                            $data = $model_2->asArray()->where(['name' =>  $tag])->find(); 
+ 
+                            if(!empty($data))
+                            {
+                                $model_3->save([
+                                    'product_id' => $last_id_product,
+                                    'tag_id' => $data[0]['id'],
+                                ]);
+                            }
+                            else
+                            {
+                                $model_2->save([
+                                    'name' => $tag,
+                                ]);
+        
+                                $last_id = $this->db->insertID();
+        
+                                $model_3->save([
+                                    'product_id' => $last_id_product,
+                                    'tag_id' => $last_id,
+                                ]);
+                            }
                         }
                         catch(Exception $e)
                         {
@@ -79,7 +90,7 @@ class Product extends BaseController
                             return redirect()->to('/home');
                         }
                     }
-    
+                    
                     $_SESSION['msg'] = 'Cadastrado com Sucesso';
                     return redirect()->to('/home');
                 }
