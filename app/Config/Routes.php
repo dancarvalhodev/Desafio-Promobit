@@ -40,6 +40,7 @@ $routes->get('/listProducts', 'Product::read');
 $routes->get('/deleteProduct/?(:num)?', 'Product::delete/$1');
 $routes->get('/showProduct/?(:num)?', 'Product::show/$1');
 $routes->get('/editProduct/?(:num)?', 'Product::editForm/$1');
+$routes->get('/report', 'Product::report');
 
 $routes->post('/read-user', 'User::read');
 $routes->post('/create-user', 'User::create');
