@@ -7,5 +7,5 @@ use CodeIgniter\Model;
 class ProductTagModel extends Model
 {
     protected $table = 'product_tag';
-    protected $allowedFields = ['name'];
+    protected $allowedFields = ['product_id', 'tag_id'];
 }

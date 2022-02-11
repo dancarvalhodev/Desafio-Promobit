@@ -10,6 +10,7 @@
 
 <div class="text-center p-4">
     <h1>Bem-Vindo</h1>
+    <a class="btn btn-primary" href="/logout">Sair</a>
     
     <div class="p-5">
         <h2>Produtos</h2>
