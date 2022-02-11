@@ -96,12 +96,12 @@ class Tag extends BaseController
                 $builder->delete();
 
                 $_SESSION['msg'] = 'Tag Deletada com Sucesso';
-                return redirect()->to('/home');
+                return redirect()->to('/listTags');
             }
             else
             {
                 $_SESSION['msg'] = 'Tag Inválida';
-                return redirect()->to('/home');
+                return redirect()->to('/listTags');
             }
         }
         else

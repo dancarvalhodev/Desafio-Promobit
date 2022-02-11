@@ -1,4 +1,4 @@
-<hr>
+<hr class="separator">
 <?php if(isset($_SESSION['msg'])): ?>
     <div class="text-center alert alert-warning alert-dismissible fade show">
         <strong><?= $_SESSION['msg'] ?></strong>
@@ -10,15 +10,15 @@
 
 <div class="card p-4" style="width: 100%;">
   <div class="card-body">
-    <h5 class="card-title">Listagem de Tags</h5>
-
+    <h5 class="card-title text-center">Listagem de Tags</h5>
+    <hr class="separator">
     <div class="row">
         <div class="col-sm-12">
-            <table class="table text-center">
+            <table class="table table-borderless">
                     <thead>
                         <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Ação</th>
+                            <th scope="col" class="text-center">Nome</th>
+                            <th scope="col" class="text-center">Ação</th>
                         </tr>
                     </thead>
                     <tbody> 
@@ -27,8 +27,10 @@
                                 <tr>
                                     <td><?= $tag['name'] ?></td>
                                     <td>
-                                        <a href="/editTag/<?= $tag['id']?>" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
-                                        <a href="/deleteTag/<?= $tag['id']?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <div class="row text-center">
+                                            <div class="col-sm-6 p-1"><a href="/editTag/<?= $tag['id']?>" class="btn btn-success btn-action"><i class="fa-solid fa-pen"></i></a></div>
+                                            <div class="col-sm-6 p-1"><a href="/deleteTag/<?= $tag['id']?>" class="btn btn-danger btn-action"><i class="fa-solid fa-trash-can"></i></a></div>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

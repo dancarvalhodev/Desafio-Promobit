@@ -1,4 +1,4 @@
-<hr>
+<hr class="separator">
 <?php if(isset($_SESSION['msg'])): ?>
     <div class="text-center alert alert-warning alert-dismissible fade show">
         <strong><?= $_SESSION['msg'] ?></strong>
@@ -10,7 +10,7 @@
 
 <div class="card p-4" style="width: 100%;">
   <div class="card-body">
-    <h5 class="card-title">Edição da Tag</h5>
+    <h5 class="card-title text-center">Edição da Tag</h5>
 
     <div class="row">
         <div class="col-sm-12">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary btn-size">Salvar</button>
                 </div>
             </form>
         </div>
@@ -34,7 +34,7 @@
     <hr>
     <div class="row">
         <div class="col-sm-12 text-center">
-            <a href="/home" class="btn btn-primary">Voltar</a>
+            <a href="/home" class="btn btn-primary btn-size">Voltar</a>
         </div>
     </div>
   </div>
