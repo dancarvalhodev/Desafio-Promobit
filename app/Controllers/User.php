@@ -60,7 +60,7 @@ class User extends BaseController
                 (($this->request->getPost('password')) == '') &&
                 (($this->request->getPost('password_check')) == ''))
             {
-                $_SESSION['msg'] = 'Dados enviados não estão corretos';
+                $_SESSION['msg'] = 'Os Dados enviados não estão corretos';
                 return redirect()->to('/');
             }
             else
