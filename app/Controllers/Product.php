@@ -103,24 +103,85 @@ class Product extends BaseController
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
         {
             $model = new ProductModel();
-            $model_2 = new ProductTagModel();
 
             $data = $model->findAll();
-
-            foreach($data as $key => $produto)
-            {
-                $data_2 = $model_2->asArray()->where(['product_id' => $produto['id']])->find();
-                
-                if(!empty($data_2))
-                {
-                    $data[$key]['tag'] = $data_2;
-                }
-
-            }
 
             echo view('Templates/beginning');
             echo view('Product/list', ['data' => $data]);
             echo view('Templates/ending');
+        }
+        else
+        {
+            echo view('Templates/beginning');
+            echo view('login');
+            echo view('Templates/ending');
+        }
+    }
+
+    public function show($param = '')
+    {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
+        {
+            if(isset($param) && ($param != ''))
+            {
+                $model = new ProductModel();
+                $model_2 = new ProductTagModel();
+                $model_3 = new TagModel();
+    
+                $data = $model->where(['id' => $param])->find();
+    
+                foreach($data as $produto)
+                {
+                    $data_2 = $model_2->asArray()->where(['product_id' => $produto['id']])->find();    
+                }
+
+                foreach($data_2 as $key => $tag)
+                {
+                    $data_3 = $model_3->asArray()->where(['id' => $tag['tag_id']])->find();
+
+
+                    if(!empty($data_3))
+                    {
+                        $data[0]['tag'][$key] = $data_3[0]['name'];
+                    }
+                }
+
+                echo view('Templates/beginning');
+                echo view('Product/show', ['data' => $data]);
+                echo view('Templates/ending');
+            }
+            else
+            {
+                $_SESSION['msg'] = 'Produto Inválido';
+                return redirect()->to('/home');
+            }
+        }
+        else
+        {
+            echo view('Templates/beginning');
+            echo view('login');
+            echo view('Templates/ending');
+        }
+    }
+
+    public function delete($param = '')
+    {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
+        {
+            if(isset($param) && ($param != ''))
+            {
+                $builder = $this->db->table('product');
+                $builder->where(['id' => $param]);
+                $builder->delete();
+
+                $_SESSION['msg'] = 'Produto Deletado com Sucesso';
+                return redirect()->to('/home');
+            }
+            else
+            {
+                $_SESSION['msg'] = 'Produto Inválido';
+                return redirect()->to('/home');
+            }
         }
         else
         {

@@ -37,6 +37,11 @@ $routes->get('/home', 'User::index');
 $routes->get('/newProductForm', 'Product::newForm');
 $routes->get('/logout', 'User::logout');
 $routes->get('/listProducts', 'Product::read');
+$routes->get('/deleteProduct/?(:num)?', 'Product::delete/$1');
+$routes->get('/showProduct/?(:num)?', 'Product::show/$1');
+//$routes->get('/editProductForm', 'Product::editForm');
+
+//$routes->get('/editProducts/?(:num)?', 'Product::edit');
 
 
 $routes->post('/read-user', 'User::read');
