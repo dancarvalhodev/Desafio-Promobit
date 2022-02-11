@@ -55,10 +55,15 @@ class User extends BaseController
         
         try{
             if(
-                (($this->request->getPost('name')) != null) &&
-                (($this->request->getPost('email')) != null) &&
-                (($this->request->getPost('password')) != null) &&
-                (($this->request->getPost('password_check')) != null))
+                (($this->request->getPost('name')) == '') &&
+                (($this->request->getPost('email')) == '') &&
+                (($this->request->getPost('password')) == '') &&
+                (($this->request->getPost('password_check')) == ''))
+            {
+                $_SESSION['msg'] = 'Dados enviados não estão corretos';
+                return redirect()->to('/');
+            }
+            else
             {
                 if(($this->request->getPost('password') === $this->request->getPost('password_check')))
                 {
@@ -91,11 +96,16 @@ class User extends BaseController
     public function read()
     {
         $model = new UserModel();
-        try{
-            if(
-                (($this->request->getPost('email')) != null) &&
-                (($this->request->getPost('password')) != null))
+
+        try
+        {
+            if((($this->request->getPost('email') == '')) ||(($this->request->getPost('password') == '')))
             {
+                $_SESSION['msg'] = 'Dados de email e/ou senha não estão corretos';
+                return redirect()->to('/');
+            }
+            else
+            {   
                 $result = $model->where('email', $this->request->getPost('email'))->findAll();
 
                 if($result){
@@ -116,16 +126,12 @@ class User extends BaseController
                         return redirect()->to('/');
                     }
                 }
-                else{   
-                    $_SESSION['msg'] = 'Dados de email e/ou senha não estão corretos';
-                    return redirect()->to('/');
-                }
-
             }
         }
-        catch(\Exception $e){
+        catch(\Exception $e)
+        {
             $_SESSION['msg'] = $e->getMessage();
-            return redirect()->to('/');
+            return redirect()->to('/register');
         }
     }
 

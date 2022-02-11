@@ -18,19 +18,19 @@
                 <?= csrf_field() ?>
                 <div class="mb-3">
                     <label for="name" class="form-label">Digite o seu nome</label>
-                    <input type="text" class="form-control" name="name" id="name">
+                    <input type="text" required class="form-control" name="name" id="name">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Digite o seu e-mail</label>
-                    <input type="email" class="form-control" name="email" id="email">
+                    <input type="email" required class="form-control" name="email" id="email">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Digite a Senha</label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <input type="password" required class="form-control" name="password" id="password">
                 </div>
                 <div class="mb-3">
                     <label for="password_check" class="form-label">Confirme a Senha</label>
-                    <input type="password" class="form-control" name="password_check" id="password_check">
+                    <input type="password" required class="form-control" name="password_check" id="password_check">
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Cadastrar</button>

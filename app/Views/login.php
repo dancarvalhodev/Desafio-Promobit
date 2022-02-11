@@ -11,19 +11,17 @@
 <div class="card p-4" style="width: 100%;">
   <div class="card-body">
     <h5 class="card-title">Entrar</h5>
-
     <div class="row">
         <div class="col-sm-12">
             <form action="/read-user" method="post">
                 <?= csrf_field() ?>
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">Você não deve compartilhar seu e-mail com ninguém.</div>
+                    <input type="email" required class="form-control" name="email" id="email">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha</label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <input type="password" required class="form-control" name="password" id="password">
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Entrar</button>
