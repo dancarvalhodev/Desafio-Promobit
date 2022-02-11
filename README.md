@@ -1,63 +1,20 @@
-# CodeIgniter 4 Application Starter
+# Desafio Promobit (Teste Prático)
+## Como rodar?
+Utilize o repositório o meu repositório [docker](https://github.com/dancarvalhodev/docker) na branch master-mysql (essa branch possui **apenas** o container do MySQL, a branch master padrão possui o container postgresql também, **apesar de funcionar em ambas, recomendo fortemente utilizar a branch master-mysql**).
 
-## What is CodeIgniter?
+Após clonar o [docker](https://github.com/dancarvalhodev/docker), clone este repositório dentro da pasta src, está é a pasta raiz que o container do apache irá ver (está linkada diretamente no `/var/www/html`).
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+Na raiz da pasta do docker, rode o seguinte comando para subir o ambiente: `docker-compose up -d`.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+Com tudo rodando, entre no container do apache utilizando o comando `docker exec -it apache /bin/bash`.
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+Acesse a pasta do projeto com `cd Desafio-Promobit`.
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+Digite `chmod +x configurar.sh` e finalmente `./configurar.sh`, este script sera responsável por configurar o restante do ambiente.
 
-## Installation & updates
+Por fim não esqueça de configurar o arquivo de host do seu sistema operacional. Basicamente nesse arquivo você deve adicionar o IP do Docker seguido da URL de test do projeto `http://promobit.test`.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
-
-## Setup
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+---
+## SQL de extração de relatório de relevancia de produtos
+**Em Contrução**
