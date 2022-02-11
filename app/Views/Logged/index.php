@@ -15,11 +15,14 @@
     <div class="p-5">
         <h2>Produtos</h2>
         <div class="row">
-            <div class="col-sm-6 p-1">
+            <div class="col-sm-4 p-1">
                 <a class="btn btn-primary" href="/newProductForm">Novo Produto</a>
             </div>
-            <div class="col-sm-6 p-1">
+            <div class="col-sm-4 p-1">
                 <a class="btn btn-primary" href="/listProducts">Listar Produtos</a>
+            </div>
+            <div class="col-sm-4 p-1">
+                <a class="btn btn-primary" href="/report">Relatório de Releavância de Produtos</a>
             </div>
         </div>
     </div>
