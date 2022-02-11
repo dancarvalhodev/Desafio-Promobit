@@ -31,21 +31,37 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// ================================================== GET ==================================================
+// Get User
 $routes->get('/', 'User::loginForm');
 $routes->get('/register', 'User::registerForm');
-$routes->get('/home', 'User::index');
-$routes->get('/newProductForm', 'Product::newForm');
 $routes->get('/logout', 'User::logout');
+$routes->get('/home', 'User::index');
+
+// Get Product
+$routes->get('/newProductForm', 'Product::newForm');
 $routes->get('/listProducts', 'Product::read');
 $routes->get('/deleteProduct/?(:num)?', 'Product::delete/$1');
 $routes->get('/showProduct/?(:num)?', 'Product::show/$1');
 $routes->get('/editProduct/?(:num)?', 'Product::editForm/$1');
 $routes->get('/report', 'Product::report');
 
+// Get Tag
+$routes->get('/newTagForm', 'Tag::newForm');
+
+// ================================================== POST ==================================================
+// Post User
 $routes->post('/read-user', 'User::read');
 $routes->post('/create-user', 'User::create');
+
+// Post Product
 $routes->post('/create-product', 'Product::create');
 $routes->post('/edit-product', 'Product::update');
+
+// Post Tag
+$routes->post('/create-tag', 'Tag::create');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
