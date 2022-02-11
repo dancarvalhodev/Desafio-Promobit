@@ -1,0 +1,11 @@
+.separator{
+    visibility: hidden;
+}
+
+.btn-size{
+    width: 200px;
+}
+
+body{
+    background: whitesmoke;
+}
