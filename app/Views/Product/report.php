@@ -1,7 +1,4 @@
-<?php //var_dump($data); ?>
-
-
-<hr>
+<hr class="separator">
 <?php if(isset($_SESSION['msg'])): ?>
     <div class="text-center alert alert-warning alert-dismissible fade show">
         <strong><?= $_SESSION['msg'] ?></strong>
