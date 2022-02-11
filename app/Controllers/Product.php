@@ -345,4 +345,41 @@ class Product extends BaseController
             echo view('Templates/ending');
         }
     }
+
+    public function report()
+    {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
+        {
+            $model_tag = new TagModel();
+            $model_product = new ProductModel();
+            $model_product_tag = new ProductTagModel();
+            
+            $builder_product = $model_product->builder();
+            $builder_tag = $model_tag->builder();
+            $builder_product_tag = $model_product_tag->builder();
+
+            $products_list = $builder_product->get()->getResultArray();
+
+            foreach($products_list as $key => $produto)
+            {
+                $relationship = $builder_product_tag->getWhere(['product_id' => $produto['id']])->getResultArray();
+                
+                foreach($relationship as $key_2 => $relation)
+                {
+                    $tag_name = $builder_tag->getWhere(['id' => $relation['tag_id']])->getResultArray();
+                    $products_list[$key]['tag'][$key_2] = $tag_name[0]['name'];
+                }        
+            }
+
+            echo view('Templates/beginning');
+            echo view('Product/report', ['data' => $products_list]);
+            echo view('Templates/ending');
+        }
+        else
+        {
+            echo view('Templates/beginning');
+            echo view('login');
+            echo view('Templates/ending');
+        }
+    }
 }
