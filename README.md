@@ -1,8 +1,8 @@
 # Desafio Promobit (Teste Prático)
 ## Como rodar?
-Utilize o meu repositório [docker lamp](https://github.com/dancarvalhodev/docker) na branch master-mysql (esta branch possui **apenas** o container do MySQL, a branch master padrão possui o container postgresql também, **apesar de funcionar em ambas, recomendo fortemente utilizar a branch master-mysql**).
+Utilize o meu repositório [docker lamp](https://github.com/dancarvalhodev/docker) na branch master-mysql (esta branch possui **apenas** o container do MySQL).
 
-Após clonar o [docker lamp](https://github.com/dancarvalhodev/docker), o atual repositório dentro da pasta src, esta é a pasta raiz que o container do apache irá ver (está linkada diretamente no `/var/www/html`).
+Após clonar o [docker lamp](https://github.com/dancarvalhodev/docker), clone o atual repositório dentro da pasta src, esta é a pasta raiz que o container do apache irá ver (está linkada diretamente no `/var/www/html`).
 
 Na raiz da pasta do docker, rode o seguinte comando para subir o ambiente: `docker-compose up -d`.
 
@@ -10,16 +10,15 @@ Com tudo rodando, entre no container do apache utilizando o comando `docker exec
 
 Acesse a pasta do projeto com `cd Desafio-Promobit`.
 
-Digite `chmod +x configurar.sh` e finalmente `./configurar.sh`, este script sera responsável por configurar o restante do ambiente.
+Digite `chmod +x configurar.sh` e finalmente `./configurar.sh`. Este script sera responsável por configurar o restante do ambiente.
 
 Por fim não esqueça de configurar o arquivo de host do seu sistema operacional. Basicamente nesse arquivo você deve adicionar o IP do Docker seguido da URL de test do projeto `http://promobit.test`.
 
 
 ---
 ## SQL de extração de relatório de relevancia de produtos
-**Em Construção**
 
-O código abaixo é a função de geração do relatório, como foi utilizado diversas funções do Forge Database e Query Builder pois foi utilizado o CodeIgniter como Framework, irei explicar os trechos onde são feitas as consultas e porque foi feito dessa forma.
+**O código abaixo é responsavel pela função geradora do relatório e pode ser encontrada no controller `Product.php`.**
 
 ```
     public function report()
@@ -59,3 +58,4 @@ O código abaixo é a função de geração do relatório, como foi utilizado di
         }
     }
 ```
+Como foram utilizadas diversas funções de database do CodeIgniter, como o Forge Database e o Query Builder, irei explicar os trechos onde são feitas as consultas.
