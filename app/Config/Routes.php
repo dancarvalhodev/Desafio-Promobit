@@ -35,6 +35,7 @@ $routes->get('/', 'User::loginForm');
 $routes->get('/register', 'User::registerForm');
 $routes->get('/home', 'User::index');
 $routes->get('/newProductForm', 'Product::newForm');
+$routes->get('/logout', 'User::logout');
 
 
 $routes->post('/read-user', 'User::read');

@@ -43,6 +43,12 @@ class User extends BaseController
         }
     }
 
+    public function logout()
+    {
+        session_destroy();
+        return redirect()->to(base_url());
+    }
+
     public function create()
     {
         $model = new UserModel();
