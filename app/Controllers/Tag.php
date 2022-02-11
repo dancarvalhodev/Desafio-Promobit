@@ -64,4 +64,23 @@ class Tag extends BaseController
             echo view('Templates/ending');
         }
     }
+
+    public function read()
+    {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
+        {
+            $model = new TagModel();
+            $data = $model->findAll();
+
+            echo view('Templates/beginning');
+            echo view('Tag/list', ['data' => $data]);
+            echo view('Templates/ending');
+        }
+        else
+        {
+            echo view('Templates/beginning');
+            echo view('login');
+            echo view('Templates/ending');
+        }
+    }
 }

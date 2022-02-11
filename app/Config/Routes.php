@@ -45,10 +45,11 @@ $routes->get('/listProducts', 'Product::read');
 $routes->get('/deleteProduct/?(:num)?', 'Product::delete/$1');
 $routes->get('/showProduct/?(:num)?', 'Product::show/$1');
 $routes->get('/editProduct/?(:num)?', 'Product::editForm/$1');
-$routes->get('/report', 'Product::report');
+//$routes->get('/report', 'Product::report');
 
 // Get Tag
 $routes->get('/newTagForm', 'Tag::newForm');
+$routes->get('/listTags', 'Tag::read');
 
 // ================================================== POST ==================================================
 // Post User
