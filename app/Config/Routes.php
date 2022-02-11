@@ -41,12 +41,10 @@ $routes->get('/deleteProduct/?(:num)?', 'Product::delete/$1');
 $routes->get('/showProduct/?(:num)?', 'Product::show/$1');
 $routes->get('/editProduct/?(:num)?', 'Product::editForm/$1');
 
-//$routes->get('/editProducts/?(:num)?', 'Product::edit');
-
-
 $routes->post('/read-user', 'User::read');
 $routes->post('/create-user', 'User::create');
 $routes->post('/create-product', 'Product::create');
+$routes->post('/edit-product', 'Product::update');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

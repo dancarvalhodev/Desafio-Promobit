@@ -22,16 +22,22 @@
                         </tr>
                     </thead>
                     <tbody> 
-                        <?php foreach($data as $produto): ?>
-                            <tr>
-                                <td><?= $produto['name'] ?></td>
-                                <td>
-                                    <a href="/showProduct/<?= $produto['id']?>" class="btn btn-info"><i class="fa-solid fa-info"></i></a>
-                                    <a href="/editProduct/<?= $produto['id']?>" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="/deleteProduct/<?= $produto['id']?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                        <?php if(!empty($data)): ?>
+                            <?php foreach($data as $produto): ?>
+                                <tr>
+                                    <td><?= $produto['name'] ?></td>
+                                    <td>
+                                        <a href="/showProduct/<?= $produto['id']?>" class="btn btn-info"><i class="fa-solid fa-info"></i></a>
+                                        <a href="/editProduct/<?= $produto['id']?>" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                                        <a href="/deleteProduct/<?= $produto['id']?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                                <tr>
+                                    <td colspan=2><p>Nenhum Produto Encontrado</p></td>
+                                </tr>
+                        <?php endif; ?>
                     </tbody>
             </table>
         </div>
