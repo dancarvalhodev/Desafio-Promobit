@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Database\Migrations\ProductTag;
 use App\Models\ProductModel;
 use App\Models\ProductTagModel;
 use App\Models\TagModel;
