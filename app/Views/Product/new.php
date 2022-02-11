@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-sm-12 p-2">
                             <label for="name" class="form-label">Digite o nome do produto</label>
-                            <input type="text" class="form-control" name="name" id="name">
+                            <input type="text" required class="form-control" name="name" id="name">
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="row tagFieldForm">
                         <div class="col-sm-12 p-2">
                             <label for="tag" class="form-label">Digite a(s) tag(s) do produto</label>
-                            <input type="text" class="form-control" name="tag[]" id="tag">
+                            <input type="text" required class="form-control" name="tag[]" id="tag">
                         </div>
                     </div>
                     <div class="col-sm-12 p-3 text-center">
