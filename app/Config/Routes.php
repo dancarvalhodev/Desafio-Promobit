@@ -17,8 +17,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
+$routes->setDefaultController('User');
+$routes->setDefaultMethod('loginForm');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
@@ -31,8 +31,15 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'User::loginForm');
+$routes->get('/register', 'User::registerForm');
+$routes->get('/home', 'User::index');
+$routes->get('/newProductForm', 'Product::newForm');
 
+
+$routes->post('/read-user', 'User::read');
+$routes->post('/create-user', 'User::create');
+$routes->post('/create-product', 'Product::create');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
