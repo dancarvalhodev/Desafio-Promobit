@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\TagModel;
+use Exception;
 
 class Tag extends BaseController
 {
@@ -102,6 +103,75 @@ class Tag extends BaseController
                 $_SESSION['msg'] = 'Tag Inválida';
                 return redirect()->to('/home');
             }
+        }
+        else
+        {
+            echo view('Templates/beginning');
+            echo view('login');
+            echo view('Templates/ending');
+        }
+    }
+
+    public function editForm($param = '')
+    {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
+        {
+            if(isset($param) && ($param != ''))
+            {
+                $model = new TagModel();
+                $data = $model->asArray()->where(['id' => $param])->find();
+                
+                echo view('Templates/beginning');
+                echo view('Tag/edit', ['data' => $data]);
+                echo view('Templates/ending');
+            }
+            else
+            {
+                $_SESSION['msg'] = 'Tag Inválida';
+                return redirect()->to('/home');
+            }
+        }
+        else
+        {
+            echo view('Templates/beginning');
+            echo view('login');
+            echo view('Templates/ending');
+        }   
+    }
+
+    public function update()
+    {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
+        {
+            $model_tag = new TagModel();
+            $builder_tag = $this->db->table('tag');
+
+            try
+            {
+                if(($this->request->getPost('name') == ''))
+                {
+                    $_SESSION['msg'] = 'Os Dados enviados não estão corretos';
+                    return redirect()->to('/');
+                }
+                else
+                {
+                    $data_raw = [
+                        'name' => $this->request->getPost('name') ,
+                    ];
+                    
+                    $builder_tag->where('id', $this->request->getPost('id'));
+                    $builder_tag->update($data_raw);
+
+                    $_SESSION['msg'] = 'Editada com Sucesso';
+                    return redirect()->to('/listTags');
+                }
+            }
+            catch(Exception $e)
+            {
+                $_SESSION['msg'] = $e->getMessage();
+                return redirect()->to('/listTags');
+            }
+        
         }
         else
         {

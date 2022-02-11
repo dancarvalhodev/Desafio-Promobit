@@ -51,6 +51,7 @@ $routes->get('/editProduct/?(:num)?', 'Product::editForm/$1');
 $routes->get('/newTagForm', 'Tag::newForm');
 $routes->get('/listTags', 'Tag::read');
 $routes->get('/deleteTag/?(:num)?', 'Tag::delete/$1');
+$routes->get('/editTag/?(:num)?', 'Tag::editForm/$1');
 
 
 // ================================================== POST ==================================================
@@ -64,6 +65,8 @@ $routes->post('/edit-product', 'Product::update');
 
 // Post Tag
 $routes->post('/create-tag', 'Tag::create');
+$routes->post('/edit-tag', 'Tag::update');
+
 
 /*
  * --------------------------------------------------------------------
