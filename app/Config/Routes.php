@@ -50,6 +50,8 @@ $routes->get('/editProduct/?(:num)?', 'Product::editForm/$1');
 // Get Tag
 $routes->get('/newTagForm', 'Tag::newForm');
 $routes->get('/listTags', 'Tag::read');
+$routes->get('/deleteTag/?(:num)?', 'Tag::delete/$1');
+
 
 // ================================================== POST ==================================================
 // Post User

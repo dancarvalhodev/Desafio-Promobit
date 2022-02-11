@@ -83,4 +83,31 @@ class Tag extends BaseController
             echo view('Templates/ending');
         }
     }
+
+    public function delete($param = '')
+    {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
+        {
+            if(isset($param) && ($param != ''))
+            {
+                $builder = $this->db->table('tag');
+                $builder->where(['id' => $param]);
+                $builder->delete();
+
+                $_SESSION['msg'] = 'Tag Deletada com Sucesso';
+                return redirect()->to('/home');
+            }
+            else
+            {
+                $_SESSION['msg'] = 'Tag Inválida';
+                return redirect()->to('/home');
+            }
+        }
+        else
+        {
+            echo view('Templates/beginning');
+            echo view('login');
+            echo view('Templates/ending');
+        }
+    }
 }
