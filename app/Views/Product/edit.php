@@ -25,6 +25,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="text-center alert alert-danger">
+                    <strong>Ao editar a tag ja existente, o nome dela será automaticamente atualizado</strong>
+                </div>
                 <div class="mb-3">
                     <div class="row tagFieldForm">
                         <label for="tag" class="form-label">Digite a(s) tag(s) do produto</label>
