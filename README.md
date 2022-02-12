@@ -1,16 +1,28 @@
 # Desafio Promobit (Teste Prático)
+
+## Requisitos
+Docker e Docker compose instalados (a forma de instalar varia de sistema para sistema).
+### Docker
+[Instalação em ambiente Windows](https://docs.docker.com/desktop/windows/install/), **ative o WSL2** para ter acesso a um ambiente Docker mais proximo do Linux e Mac.
+[Instalação em ambiente macOS](https://docs.docker.com/desktop/mac/install/).
+[Instalação em ambiente Linux](https://docs.docker.com/engine/install/), **escolha a distribuição correta antes de instalar**.
+### Docker Compose
+[Documentação Oficial](https://docs.docker.com/compose/install/).
+
 ## Como rodar?
 Utilize o meu repositório [docker lamp](https://github.com/dancarvalhodev/docker) na branch master-mysql (esta branch possui **apenas** o container do MySQL).
 
-Após clonar o [docker lamp](https://github.com/dancarvalhodev/docker), clone o atual repositório dentro da pasta src, esta é a pasta raiz que o container do apache irá ver (está linkada diretamente no `/var/www/html`).
+Após clonar o [docker lamp](https://github.com/dancarvalhodev/docker), clone o atual repositório dentro da pasta src.
 
-Na raiz da pasta do docker, rode o seguinte comando para subir o ambiente: `docker-compose up -d`.
+Na raiz da pasta do docker, rode o seguinte comando para subir o ambiente: `docker-compose up -d` **este comando pode levar alguns minutos para ser concluído dependendo da velocidade da conexão com a internet**.
 
 Com tudo rodando, entre no container do apache utilizando o comando `docker exec -it apache /bin/bash`.
 
 Acesse a pasta do projeto com `cd Desafio-Promobit`.
 
-Digite `chmod +x configurar.sh` e finalmente `./configurar.sh`. Este script sera responsável por configurar o restante do ambiente.
+Digite `chmod +x configurar.sh` e finalmente `./configurar.sh`. Este script sera responsável por algumas configurações do projeto e realizar o download das dependências.
+
+Abra o [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) e crie uma nova database com o nome de promobit. Ele já vai pegar os dados do container do MySQL automaticamente, caso não o faça, crie uma conexão com o usuário e senha como root e crie a database normalmente.
 
 Por fim não esqueça de configurar o arquivo de host do seu sistema operacional. Basicamente nesse arquivo você deve adicionar o IP do Docker seguido da URL de test do projeto `http://promobit.test`.
 
