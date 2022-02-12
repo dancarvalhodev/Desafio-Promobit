@@ -80,9 +80,12 @@ A linha abaixo atribui a uma variável todos os dados de produtos que estão gra
 `$products_list = $builder_product->get()->getResultArray();`
 
 Em seguida é feito um loop percorrendo toda a lista de produtos para poder fazer o manuseio dos dados individuais de cada produto. 
-Nesse caso a linha onde é atribuído dados a variável relationship, é responsável por fazer uma pesquisa no banco de dados, na tabela de relação entre produtos/tags, em busca de todas as linhas onde existam dados desse produto em especifico. Isso é feito para poder pesquisar posteriormente as tags deste produto em especifico e adiciona-las no array. Este comando seria similar ao `SELECT * FROM product_tag WHERE product_id = $produto['id']`.
-Após está atribuição é feita um outro loop, dessa vez percorrendo a lista da relação. No interior desse loop é feita uma outra consulta dessa vez na tabela de tags para pegar o nome da tag, pois tinha-se apenas a id, e assim atribuir a variável tag_name. Este comando seria similar ao `SELECT * FROM tag WHERE id = $relation['tag_id']`.
-Finalmente é montado o array com os dados.
+
+Em seguida é atribuído os dados a variável relationship, que é responsável por fazer uma pesquisa na tabela de relação entre produtos/tags, em busca de todas as linhas onde existam dados desse produto em especifico. Isso é feito para poder pesquisar posteriormente as tags deste produto em especifico e adiciona-las no array. Este comando seria similar ao `SELECT * FROM product_tag WHERE product_id = $produto['id']`.
+
+Após esta atribuição é feita um outro loop, dessa vez percorrendo a lista da relação. No interior desse loop é feita uma outra consulta, dessa vez na tabela de tags para pegar o nome da tag, pois tinha-se apenas a id, e assim atribuir a variável tag_name. Este comando seria similar ao `SELECT * FROM tag WHERE id = $relation['tag_id']`.
+
+Finalmente é montado o array com os dados, juntando os dados do produto (id e nome) com as tags (que são adicionadas em outro array, dentro da chave tags, que por sua vez está localizada no array principal, o products_list).
 ```
     foreach($products_list as $key => $produto)
     {
