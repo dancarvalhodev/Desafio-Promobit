@@ -4,7 +4,9 @@
 Docker e Docker compose instalados (a forma de instalar varia de sistema para sistema).
 ### Docker
 [Instalação em ambiente Windows](https://docs.docker.com/desktop/windows/install/), **ative o WSL2** para ter acesso a um ambiente Docker mais proximo do Linux e Mac.
+
 [Instalação em ambiente macOS](https://docs.docker.com/desktop/mac/install/).
+
 [Instalação em ambiente Linux](https://docs.docker.com/engine/install/), **escolha a distribuição correta antes de instalar**.
 ### Docker Compose
 [Documentação Oficial](https://docs.docker.com/compose/install/).
