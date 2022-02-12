@@ -75,7 +75,8 @@ Abaixo também são instanciados, em três variáveis, os respectivos Models. En
 ```
 **O motivo da utilização de ambas formas para se relacionar com o banco de dados foi a facilidade em se fazer algumas operações e, por isso, foi intercalado ambos modos de relacionamento.**
 
-A linha abaixo atribui a uma variável todos os dados de produtos que estão gravados na tabela Producs. O comando abaixo seria equivalente ao classico `SELECT * FROM products`
+A linha abaixo atribui a uma variável todos os dados de produtos que estão gravados na tabela Product. O comando abaixo seria equivalente ao classico `SELECT * FROM products`
+
 `$products_list = $builder_product->get()->getResultArray();`
 
 Em seguida é feito um loop percorrendo toda a lista de produtos para poder fazer o manuseio dos dados individuais de cada produto. 
